@@ -1,0 +1,30 @@
+<div
+  *ngIf="loading"
+  class="alert alert-info d-flex align-items-center"
+  role="alert"
+>
+  <div>
+    <p>Loading ...</p>
+  </div>
+</div>
+<div
+  *ngIf="error"
+  class="alert alert-danger d-flex align-items-center"
+  role="alert"
+>
+  <div>
+    <pre>{{ error | json }}</pre>
+  </div>
+</div>
+
+<div class="card-group" *ngIf="!loading">
+  <div class="card p" *ngFor="let user of users">
+    <img [src]="user.avatar" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ user.last_name }}, {{ user.first_name }}</h5>
+      <p class="card-text text-muted">
+        {{ user.email }}
+      </p>
+    </div>
+  </div>
+</div>
